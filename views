@@ -38,23 +38,30 @@ index() {
     do
     repository_partial="`echo $repository_full|sed s+^${REPOSITORIES_DIR}++`"
     sed "s+{{repository path}}+${repository_partial}+g" \
-      templates/_repository_row.html >> "${TMP}"/_repository_rows.html
+      web/_repository_row.html >> "${TMP}"/_repository_rows.html
   done
 
   # Add to the template.
   sed "/id=\"repositories\"/r ${TMP}/_repository_rows.html" \
-    templates/index.html > $PUBLIC_HTML_DIR/index.html
+    web/index.html > $TMP/public_html/index.html
   rm $TMP/_repository_rows.html
 
   # Other variables
   sed -i -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
-    $PUBLIC_HTML_DIR/index.html
+    $TMP/public_html/index.html
 }
 
 htpasswd() {
 
 }
 
-# Run things
+# Compilation directory
+rm -Rf $TMP/public_html
+cp -R web $TMP/public_html
+
+# Dynamic stuff
 index
 # htpasswd
+
+# Publish
+cp -R $TMP/public_html $PUBLIC_HTML_DIR
