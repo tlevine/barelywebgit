@@ -1,5 +1,5 @@
 #!/bin/sh
 
-repositories() {
+models_repositories() {
   return ( foo.git bar.git baz.git )
 }
