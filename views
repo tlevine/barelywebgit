@@ -14,6 +14,7 @@ REPOSITORIES_DIR=/home/private
 PUBLIC_HTML_DIR=/home/public
 HTPASSWD_FILE=/home/protected/.htpasswd
 BARELYWEBGIT_REPOSITORY=/home/private/barelywebgit
+TMP=/tmp
 
 # --------------------------------------------------------------------------- #
 # End settings
@@ -23,8 +24,13 @@ cd $BARELYWEBGIT_REPOSITORY
 . models
 
 index() {
-  r=models_repositories "$REPOSITORIES_DIR"
-  
+  repositories=models_repositories "$REPOSITORIES_DIR"
+  echo > /tmp/repository_rows.html
+  for repository in repositories
+    do
+    sed "s/{{repository path}}/$repository/g" \
+      templates/_repository_row.html >>  $TMP/_repository_rows.html
+  done
 }
 
 htpasswd() {
