@@ -4,6 +4,9 @@
 # Begin settings
 # --------------------------------------------------------------------------- #
 
+# SSH
+SSH_ACCOUNT=accountname_sitename@ssh.phx.nearlyfreespeech.net
+
 # HTTP authentication
 # Define these to make the web display private.
 # USERNAME=tlevine
@@ -28,7 +31,7 @@ index() {
   repositories=models_repositories "$REPOSITORIES_DIR"
 
   # Make rows.
-  echo > /tmp/repository_rows.html
+  echo > $TMP/_repository_rows.html
   for repository_full in repositories
     do
     repository_partial="`echo $repository_full|sed s/^${REPOSITORIES_DIR}//`"
@@ -39,7 +42,11 @@ index() {
   # Add to the template.
   sed "/{-repository rows-}/r ${TMP}/_repository_rows.html" \
     templates/index.html > $PUBLIC_html_dir/index.html
-  
+  rm $TMP/_repository_rows.html
+
+  # Other variables
+  sed -i -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
+    $PUBLIC_html_dir/index.html
 }
 
 htpasswd() {
