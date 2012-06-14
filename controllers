@@ -1,1 +1,32 @@
 #!/bin/sh
+
+# --------------------------------------------------------------------------- #
+# Begin settings
+# --------------------------------------------------------------------------- #
+
+# HTTP authentication
+# Define these to make the web display private.
+# USERNAME=tlevine
+# PASSWORD=chainsaws
+
+# Filesystem
+REPOSITORIES_DIR=/home/private
+PUBLIC_HTML_DIR=/home/public
+HTPASSWD_FILE=/home/protected/.htpasswd
+BARELYWEBGIT_REPOSITORY=/home/private/barelywebgit
+
+# --------------------------------------------------------------------------- #
+# End settings
+# --------------------------------------------------------------------------- #
+
+cd $BARELYWEBGIT_REPOSITORY
+. models
+
+index() {
+  r=models_repositories "$REPOSITORIES_DIR"
+  
+}
+
+htpasswd() {
+
+}
