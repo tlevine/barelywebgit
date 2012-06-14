@@ -9,11 +9,11 @@
 # USERNAME=tlevine
 # PASSWORD=chainsaws
 
-# Filesystem
-REPOSITORIES_DIR=/home/private
-PUBLIC_HTML_DIR=/home/public
+# Filesystem, with trailing slashes
+REPOSITORIES_DIR=/home/private/
+PUBLIC_HTML_DIR=/home/public/
 HTPASSWD_FILE=/home/protected/.htpasswd
-BARELYWEBGIT_REPOSITORY=/home/private/barelywebgit
+BARELYWEBGIT_REPOSITORY=/home/private/barelywebgit/
 TMP=/tmp
 
 # --------------------------------------------------------------------------- #
@@ -24,13 +24,22 @@ cd $BARELYWEBGIT_REPOSITORY
 . models
 
 index() {
+  # Retrieve repository list.
   repositories=models_repositories "$REPOSITORIES_DIR"
+
+  # Make rows.
   echo > /tmp/repository_rows.html
-  for repository in repositories
+  for repository_full in repositories
     do
-    sed "s/{{repository path}}/$repository/g" \
-      templates/_repository_row.html >>  $TMP/_repository_rows.html
+    repository_partial="`echo $repository_full|sed s/^${REPOSITORIES_DIR}//`"
+    sed "s/{{repository path}}/${repository_partial}/g" \
+      templates/_repository_row.html >> "${TMP}"/_repository_rows.html
   done
+
+  # Add to the template.
+  sed "/{-repository rows-}/r ${TMP}/_repository_rows.html" \
+    templates/index.html > $PUBLIC_html_dir/index.html
+  
 }
 
 htpasswd() {
