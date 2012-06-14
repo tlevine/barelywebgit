@@ -32,7 +32,7 @@ index() {
 
   # Make rows.
   echo > $TMP/_repository_rows.html
-  for repository_full in repositories
+  for repository_full in ${repositories[@]}
     do
     repository_partial="`echo $repository_full|sed s/^${REPOSITORIES_DIR}//`"
     sed "s/{{repository path}}/${repository_partial}/g" \
@@ -52,3 +52,7 @@ index() {
 htpasswd() {
 
 }
+
+# Run things
+index
+# htpasswd
