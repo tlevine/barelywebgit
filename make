@@ -37,7 +37,7 @@ index() {
     repository_tagged="<span class=\"path-component\">`
       echo $repository_partial |
       sed s=^${REPOSITORIES_DIR}== |
-      sed 's=/=<span><span class=\"path-component\">='
+      sed 's=/=<span><span class\=\"path-component\">='
     `</span>"
     sed -e "s={{repository path}}=${repository_partial}=g" \
       -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
