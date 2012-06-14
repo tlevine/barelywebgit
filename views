@@ -64,4 +64,5 @@ index
 # htpasswd
 
 # Publish
-cp -R $TMP/public_html $PUBLIC_HTML_DIR
+rm -Rf $PUBLIC_HTML_DIR/*
+cp -R $TMP/public_html/* $PUBLIC_HTML_DIR
