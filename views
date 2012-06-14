@@ -29,7 +29,7 @@ cd $BARELYWEBGIT_REPOSITORY
 
 index() {
   # Retrieve repository list.
-  repositories=models_repositories "$REPOSITORIES_DIR"
+  repositories="`models_repositories \"$REPOSITORIES_DIR\"`"
 
   # Make rows.
   echo > $TMP/_repository_rows.html
