@@ -42,7 +42,7 @@ index() {
   done
 
   # Add to the template.
-  sed "/{-repository rows-}/r ${TMP}/_repository_rows.html" \
+  sed "/id=\"repositories\"/r ${TMP}/_repository_rows.html" \
     templates/index.html > $PUBLIC_HTML_DIR/index.html
   rm $TMP/_repository_rows.html
 
