@@ -43,12 +43,12 @@ index() {
 
   # Add to the template.
   sed "/{-repository rows-}/r ${TMP}/_repository_rows.html" \
-    templates/index.html > $PUBLIC_html_dir/index.html
+    templates/index.html > $PUBLIC_HTML_DIR/index.html
   rm $TMP/_repository_rows.html
 
   # Other variables
   sed -i -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
-    $PUBLIC_html_dir/index.html
+    $PUBLIC_HTML_DIR/index.html
 }
 
 htpasswd() {
