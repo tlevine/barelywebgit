@@ -48,6 +48,8 @@ cd some/other/repository_name
 git push -u origin master
 ```
 
+For now, repository names can't have spaces.
+
 ### More how-to
 
 In case you're curious, `barelywebgit init` just runs this

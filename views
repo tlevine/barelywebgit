@@ -25,13 +25,10 @@ TMP=/tmp
 
 set -e
 cd $BARELYWEBGIT_REPOSITORY
-. models
+
+repositories="`find $REPOSITORIES_DIR -name *.git`"
 
 index() {
-  # Retrieve repository list.
-# repositories="`models_repositories \"$REPOSITORIES_DIR\"`"
-  repositories="foo.git bar.git"
-
   # Make rows.
   echo > $TMP/_repository_rows.html
   for repository_full in ${repositories}

@@ -1,9 +1,0 @@
-#!/bin/sh
-
-models_repositories() {
-  echo $1
-  r[0]=foo.git
-  r[1]=bar.git
-  echo $r
-  return $r
-}
