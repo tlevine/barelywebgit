@@ -37,7 +37,8 @@ index() {
   for repository_full in ${repositories}
     do
     repository_partial="`echo $repository_full|sed s+^${REPOSITORIES_DIR}++`"
-    sed "s+{{repository path}}+${repository_partial}+g" \
+    sed -e "s+{{repository path}}+${repository_partial}+g" \
+      -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
       web/_repository_row.html >> "${TMP}"/_repository_rows.html
   done
 
@@ -45,10 +46,6 @@ index() {
   sed "/id=\"repositories\"/r ${TMP}/_repository_rows.html" \
     web/index.html > $TMP/public_html/index.html
   rm $TMP/_repository_rows.html
-
-  # Other variables
-  sed -i -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
-    $TMP/public_html/index.html
 }
 
 htpasswd() {
