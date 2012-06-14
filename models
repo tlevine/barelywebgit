@@ -1,1 +1,5 @@
 #!/bin/sh
+
+repositories() {
+  return ( foo.git bar.git baz.git )
+}
