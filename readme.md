@@ -7,6 +7,14 @@ could host the site somewhere else, but the default configuration uses
 NFSN's directory structure, and you'd probably be able
 to use something fancier if you were hosting somewhere.
 
+## How to
+
+```#sh
+
+git clone git@github.com:tlevine/barelywebgit.git
+cd barelywebgit
+```
+
 ## Architecture
 BarelyWebGit uses a 
 
