@@ -16,6 +16,9 @@ First, set up the public version.
 git clone git@github.com:tlevine/barelywebgit.git
 cd barelywebgit
 
+# Install dependencies
+./barelywebgit deps
+
 # Create a bare repository on the server.
 accountname_sitename=tom_thomaslevine-git # <-- Change this for your site.
 git remote add nfsn $accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git
@@ -41,7 +44,7 @@ also `$HOME`.
 
 ```#sh
 cd some/other/repository_name
-barelywebgit init origin $accountname_sitename@ssh.phx.nearlyfreespeech.net
+./barelywebgit init origin $accountname_sitename@ssh.phx.nearlyfreespeech.net
 git push -u origin master
 ```
 
