@@ -48,7 +48,7 @@ cd some/other/repository_name
 git push -u origin master
 ```
 
-For now, repository names can't have spaces or ampersands.
+For now, repository names can't have spaces or pipes.
 
 ### More how-to
 
