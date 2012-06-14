@@ -23,6 +23,7 @@ TMP=/tmp
 # End settings
 # --------------------------------------------------------------------------- #
 
+set -e
 cd $BARELYWEBGIT_REPOSITORY
 . models
 

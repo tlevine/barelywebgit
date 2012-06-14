@@ -1,5 +1,7 @@
 #!/bin/sh
 
 models_repositories() {
-  return ( foo.git bar.git baz.git )
+  r[0]=foo.git
+  r[1]=bar.git
+  return $r
 }
