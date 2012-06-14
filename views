@@ -35,8 +35,8 @@ index() {
   echo > $TMP/_repository_rows.html
   for repository_full in ${repositories[@]}
     do
-    repository_partial="`echo $repository_full|sed s/^${REPOSITORIES_DIR}//`"
-    sed "s/{{repository path}}/${repository_partial}/g" \
+    repository_partial="`echo $repository_full|sed s+^${REPOSITORIES_DIR}++`"
+    sed "s+{{repository path}}+${repository_partial}+g" \
       templates/_repository_row.html >> "${TMP}"/_repository_rows.html
   done
 
