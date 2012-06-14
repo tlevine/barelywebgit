@@ -59,10 +59,10 @@ ssh "$accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git git ini
 ```
 
 If you want to change the directory structure, probably because you're not
-using NFSN, edit barelywebgit.conf
+using NFSN, edit `settings`.
 
 ```#sh
-$EDITOR barelywebgit.conf
+$EDITOR settings
 ```
 
 If you want to use public key authentication on NFSN, read

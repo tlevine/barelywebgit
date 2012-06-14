@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# HTTP authentication
+# ------------------------------------------
+# Define these to make the web display private.
+# USERNAME=tlevine
+# PASSWORD=chainsaws
+
+
+# Filesystem
+# ------------------------------------------
+REPOSITORIES_DIR=/home/private
+PUBLIC_HTML_DIR=/home/public
+HTPASSWD_FILE=/home/protected/.htpasswd
