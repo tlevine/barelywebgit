@@ -34,6 +34,11 @@ index() {
   for repository_full in ${repositories}
     do
     repository_partial="`echo $repository_full|sed s=^${REPOSITORIES_DIR}==`"
+    repository_tagged="<span class=\"path-component\">`
+      echo $repository_partial |
+      sed s=^${REPOSITORIES_DIR}== |
+      sed s=/=<span><span class=\"path-component\">=
+    `</span>"
     sed -e "s={{repository path}}=${repository_partial}=g" \
       -e "s/{{SSH account}}/${SSH_ACCOUNT}/g" \
       web/_repository_row.html >> "${TMP}"/_repository_rows.html
