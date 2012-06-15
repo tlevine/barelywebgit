@@ -34,16 +34,16 @@ index() {
   for repository_full in ${repositories}
     do
     repository_partial="`echo $repository_full|sed s=^${REPOSITORIES_DIR}==`"
-    repository_tagged="<span class\\\\\\=\"path-component\">`
+    repository_tagged="<span class\'\"path-component\">`
       echo $repository_partial |
       sed s=^${REPOSITORIES_DIR}== |
-      sed 's=/=</span><span class\\\\\\\=\"path-component\">=g'
+      sed 's=/=</span><span class\'\"path-component\">=g'
     `</span>"
     sed -e "s={{repository_partial}}=${repository_partial}=g" \
       -e "s={{repository_tagged}}=${repository_tagged}=g" \
       -e "s/{{SSH_ACCOUNT}}/${SSH_ACCOUNT}/g" \
       web/_repository_row.html |
-      tr '&' '=' >> "${TMP}"/_repository_rows.html
+      tr '\'' '=' >> "${TMP}"/_repository_rows.html
   done
 
   # Add to the template.
