@@ -408,6 +408,7 @@ html{
 
 #repositories {
   background: white;
+  width: 100%;
 }
 
 header, #main, footer {
@@ -425,7 +426,10 @@ footer {
   text-align: center;
 }
 
-#repositories {
+#repositories td, #repositories th {
+  width: 100%;
+}
+#repositories input {
   width: 100%;
 }
 
@@ -457,6 +461,10 @@ footer {
   #git-logo { width: 465px; }
   header { text-align: center; }
 
+  /* Unhide */
+  #repositories td, #repositories th {
+    width: 50%;
+  }
   #repositories td:first-of-type,
   #repositories th:first-of-type {
     display: table-cell;
