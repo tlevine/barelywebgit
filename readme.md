@@ -106,6 +106,15 @@ public and private information in the same site. It might work like this.
 * `/home/public/index.html` explains the permissions levels and links to
      `/public` and `/private`
 
+### Add the hook
+Add a hook to rebuild after a push
+
+http://stackoverflow.com/questions/2293498/git-commit-hooks-global-se
+ttings
+
+### Fix authentication
+I don't know why .htpasswd isn't being found.
+
 ## Alternatives
 If you want a static git site generator and BarelyWebGit is too bare,
 you might try [git2html](http://hssl.cs.jhu.edu/~neal/git2html/).
