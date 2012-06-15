@@ -21,9 +21,9 @@ cd barelywebgit
 
 # Create a bare repository on the server.
 accountname_sitename=tom_thomaslevine-git # <-- Change this for your site.
-git remote add nfsn $accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git
+git remote add nfsn $accountname_sitename@ssh.phx.nearlyfreespeech.net:~/barelywebgit.git
 cmd="mkdir $repository_name; cd $repository_name; git init; echo  -e '[receive]\ndenyCurrentBranch = ignore' >> .git/config"
-ssh $accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git $cmd
+ssh $accountname_sitename@ssh.phx.nearlyfreespeech.net:~/barelywebgit.git $cmd
 
 # Switch to the deploy branch
 git checkout deploy
@@ -57,8 +57,8 @@ In case you're curious, `barelywebgit init` just runs this
 
 ```#sh
 repository_name="`basename \`pwd\``"
-git remote add origin "$accountname_sitename@ssh.phx.nearlyfreespeech.net:$repository_name.git"
-ssh "$accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git git init --bare $repository_name.git"
+git remote add origin "$accountname_sitename@ssh.phx.nearlyfreespeech.net:~/$repository_name.git"
+ssh "$accountname_sitename@ssh.phx.nearlyfreespeech.net:~/barelywebgit.git git init --bare $repository_name.git"
 ```
 
 If you want to change the directory structure, probably because you're not
