@@ -86,8 +86,8 @@ render_htpasswd
 render_htaccess
 
 # Publish
-rm -Rf $PUBLIC_HTML_DIR/*
-cp -R $TMP/public_html/* $PUBLIC_HTML_DIR
+rm -Rf $PUBLIC_HTML_DIR/.h* $PUBLIC_HTML_DIR/*
+cp -R $TMP/public_html/.h* $TMP/public_html/* $PUBLIC_HTML_DIR
 
 # Clean up
 rm -Rf $TMP/public_html
