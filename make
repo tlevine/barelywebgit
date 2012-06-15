@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------- #
 
 # SSH
-SSH_ACCOUNT=accountname_sitename@ssh.phx.nearlyfreespeech.net
+SSH_ACCOUNT=tlevine_thomaslevine-git@ssh.phx.nearlyfreespeech.net
 
 # HTTP authentication
 # Define these to make the web display private.
