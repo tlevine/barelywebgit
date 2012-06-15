@@ -11,8 +11,6 @@ SSH_ACCOUNT=accountname_sitename@ssh.phx.nearlyfreespeech.net
 # Define these to make the web display private.
 # USERNAME=git
 # PASSWORD=chainsaws
-USERNAME=git
-PASSWORD=chainsaws
 
 # Filesystem, with trailing slashes
 REPOSITORIES_DIR=/home/private/
