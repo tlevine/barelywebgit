@@ -58,6 +58,7 @@ body {
 body, button, input, select, textarea {
 	font: 1em/1.625 Georgia, serif;
 	color: #4E443C; /* Full black on white is too much contrast, #222 is a better default */
+	outline-color: #F14E32;
 }
 
 /* Add and/or remove tags as your baseline grid needs */
