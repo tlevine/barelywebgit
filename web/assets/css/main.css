@@ -374,6 +374,33 @@ html, body, #repositories {
   width: 100%;
 }
 
+/* Sticky Footer
+   http://www.cssstickyfooter.com/using-sticky-footer-code.html
+---------------------------------------- */
+#wrap {
+  min-height: 100%;
+}
+#main {
+  overflow:auto;
+  padding-bottom: 68px; /* must be same height as the footer */
+}
+footer {
+  position: relative;
+  margin-top: -68px; /* negative value of footer height */
+  height: 68px;
+  clear:both;
+}
+
+/*Opera Fix*/
+body:before {
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;/
+}
+/* .ie6 #wrap, .ie8 #wrap {display:table;height:100%} */
+
 html{
   background: #F0EFE7;
   color: #4E443C;
@@ -383,10 +410,15 @@ html{
   background: white;
 }
 
-header, #main, footer, header img {
-  width: 300px;
+header, #main, footer {
+  width: 310px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#git-logo {
+  margin-top: 1.625em;
+  margin-bottom: 1.625em;
 }
 
 footer {
@@ -397,6 +429,12 @@ footer {
   width: 100%;
 }
 
+/* Hide repository path */
+#repositories td:first-of-type,
+#repositories th:first-of-type {
+  display: none;
+}
+
 /* Media queries
 ---------------------------------------- */
 
@@ -405,16 +443,28 @@ footer {
 @media only screen and (min-width: 480px) {
   /* Wide mobile (480px+) styles go here */
   header, #main, footer {
-    width: 450px;
+    width: 465px;
   }
 }
 
 @media only screen and (min-width: 768px) { 
-	/* Tablets/netbooks (768px+) styles go here */
+  /* Tablets/netbooks (768px+) styles go here */
+  header, #main, footer {
+    width: 750px;
+  }
+
+  /* Limit logo size */
+  #git-logo { width: 465px; }
+  header { text-align: center; }
+
+  #repositories td:first-of-type,
+  #repositories th:first-of-type {
+    display: table-cell;
+  }
 }
 
 @media only screen and (min-width: 1024px) { 
-	/* Desktops (1024px+) styles go here */
+  /* Desktops (1024px+) styles go here */
 }
 
 /* Print styles
