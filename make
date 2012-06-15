@@ -69,7 +69,7 @@ render_htaccess() {
   if [ "$USERNAME" != '' ] && [ "$PASSWORD" != '' ]
     then
     echo "AuthType Basic
-AuthName $AUTHNAME
+AuthName \"$AUTHNAME\"
 AuthUserFile $HTPASSWD_FILE
 Require user $USERNAME" > \
     $TMP/public_html/.htaccess
