@@ -28,7 +28,7 @@ cd $BARELYWEBGIT_REPOSITORY
 
 repositories="`find $REPOSITORIES_DIR -name *.git`"
 
-index() {
+render_index() {
   # Make rows.
   echo > $TMP/_repository_rows.html
   for repository_full in ${repositories}
@@ -52,8 +52,9 @@ index() {
   rm $TMP/_repository_rows.html
 }
 
-htpasswd() {
-
+render_htpasswd() {
+  rm -f "$HTPASSWD_FILE"
+  htpasswd -c "$HTPASSWD_FILE"
 }
 
 # Compilation directory
@@ -61,8 +62,8 @@ rm -Rf $TMP/public_html
 cp -R web $TMP/public_html
 
 # Dynamic stuff
-index
-# htpasswd
+render_index
+# render_htpasswd
 
 # Publish
 rm -Rf $PUBLIC_HTML_DIR/*
