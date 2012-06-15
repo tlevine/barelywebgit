@@ -57,7 +57,7 @@ body {
 /* Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ */
 body, button, input, select, textarea {
 	font: 1em/1.625 Georgia, serif;
-	color: #222; /* Full black on white is too much contrast, #222 is a better default */
+	color: #4E443C; /* Full black on white is too much contrast, #222 is a better default */
 }
 
 /* Add and/or remove tags as your baseline grid needs */
@@ -462,12 +462,21 @@ footer {
   header { text-align: center; }
 
   /* Unhide */
-  #repositories td, #repositories th {
-    width: 50%;
+  #repositories td:last-of-type,
+  #repositories th:last-of-type {
+    width: 65%;
   }
   #repositories td:first-of-type,
   #repositories th:first-of-type {
     display: table-cell;
+    width: 35%;
+  }
+  #repositories td:first-of-type span,
+  #repositories th:first-of-type span {
+    color: white;
+    background-color: #4E443C;
+    padding: 0.143em
+    margin-right: 0.143em
   }
 }
 
