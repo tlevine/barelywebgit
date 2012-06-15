@@ -61,10 +61,11 @@ render_htpasswd() {
 }
 
 render_htaccess() {
-  AuthType Basic
-  AuthName "$AUTHNAME"
-  AuthUserFile "$HTPASSWD_FILE"
-  Require user $USERNAME
+  echo "AuthType Basic
+AuthName $AUTHNAME
+AuthUserFile $HTPASSWD_FILE
+Require user $USERNAME" >
+  $TMP/public_html/.htaccess
 }
 
 # Compilation directory
@@ -73,8 +74,12 @@ cp -R web $TMP/public_html
 
 # Dynamic stuff
 render_index
-# render_htpasswd
+render_htpasswd
+render_htaccess
 
 # Publish
 rm -Rf $PUBLIC_HTML_DIR/*
 cp -R $TMP/public_html/* $PUBLIC_HTML_DIR
+
+# Clean up
+rm -Rf $TMP/public_html
