@@ -11,6 +11,8 @@ SSH_ACCOUNT=accountname_sitename@ssh.phx.nearlyfreespeech.net
 # Define these to make the web display private.
 # USERNAME=git
 # PASSWORD=chainsaws
+USERNAME=git
+PASSWORD=chainsaws
 
 # Filesystem, with trailing slashes
 REPOSITORIES_DIR=/home/private/
@@ -69,6 +71,7 @@ render_htaccess() {
     echo "AuthType Basic
 AuthName \"$AUTHNAME\"
 AuthUserFile $HTPASSWD_FILE
+AuthGroupFile /dev/null
 Require user $USERNAME" > \
     $TMP/public_html/.htaccess
   fi
