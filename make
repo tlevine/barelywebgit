@@ -58,7 +58,7 @@ render_index() {
 }
 
 render_htpasswd() {
-  if [ "$USERNAME" != '' && "$PASSWORD" != '' ]
+  if [ "$USERNAME" != '' ] && [ "$PASSWORD" != '' ]
     then
     rm -f "$HTPASSWD_FILE"
     htpasswd -cb "$HTPASSWD_FILE" "$USERNAME" "$PASSWORD"
@@ -66,7 +66,7 @@ render_htpasswd() {
 }
 
 render_htaccess() {
-  if [ "$USERNAME" != '' && "$PASSWORD" != '' ]
+  if [ "$USERNAME" != '' ] && [ "$PASSWORD" != '' ]
     then
     echo "AuthType Basic
 AuthName $AUTHNAME
