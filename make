@@ -34,7 +34,7 @@ index() {
   for repository_full in ${repositories}
     do
     repository_partial="`echo $repository_full|sed s=^${REPOSITORIES_DIR}==`"
-    repository_tagged="<span class=\"path-component\">`
+    repository_tagged="<span class&\"path-component\">`
       echo $repository_partial |
       sed s=^${REPOSITORIES_DIR}== |
       sed 's=/=<span><span class&\"path-component\">='
