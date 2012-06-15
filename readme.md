@@ -22,7 +22,8 @@ cd barelywebgit
 # Create a bare repository on the server.
 accountname_sitename=tom_thomaslevine-git # <-- Change this for your site.
 git remote add nfsn $accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git
-ssh $accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git 'git init --bare barelywebgit.git'
+cmd="mkdir $repository_name; cd $repository_name; git init; echo  -e '[receive]\ndenyCurrentBranch = ignore' >> .git/config"
+ssh $accountname_sitename@ssh.phx.nearlyfreespeech.net:barelywebgit.git $cmd
 
 # Switch to the deploy branch
 git checkout deploy
