@@ -52,7 +52,7 @@ render_index() {
   done
 
   # Add to the template.
-  sed "/id=\"repositories\"/r ${TMP}/_repository_rows.html" \
+  sed "/Rows are added below from a partial/r ${TMP}/_repository_rows.html" \
     web/index.html > $TMP/public_html/index.html
   rm $TMP/_repository_rows.html
 }
