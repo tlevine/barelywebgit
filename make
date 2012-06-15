@@ -37,12 +37,13 @@ index() {
     repository_tagged="<span class=\"path-component\">`
       echo $repository_partial |
       sed s=^${REPOSITORIES_DIR}== |
-      sed 's=/=<span><span class\\\\\\\=\"path-component\">='
+      sed 's=/=<span><span class&\"path-component\">='
     `</span>"
     sed -e "s={{repository_partial}}=${repository_partial}=g" \
       -e "s={{repository_tagged}}=${repository_tagged}=g" \
       -e "s/{{SSH_ACCOUNT}}/${SSH_ACCOUNT}/g" \
-      web/_repository_row.html >> "${TMP}"/_repository_rows.html
+      web/_repository_row.html |
+      tr '&' '=' >> "${TMP}"/_repository_rows.html
   done
 
   # Add to the template.
