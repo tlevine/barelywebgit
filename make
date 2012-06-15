@@ -9,13 +9,16 @@ SSH_ACCOUNT=accountname_sitename@ssh.phx.nearlyfreespeech.net
 
 # HTTP authentication
 # Define these to make the web display private.
-# USERNAME=tlevine
+# USERNAME=git
 # PASSWORD=chainsaws
 
 # Filesystem, with trailing slashes
 REPOSITORIES_DIR=/home/private/
 PUBLIC_HTML_DIR=/home/public/
+
+AUTHNAME="Private BarelyWebGit Index"
 HTPASSWD_FILE=/home/protected/.htpasswd
+
 BARELYWEBGIT_REPOSITORY=/home/private/barelywebgit/
 TMP=/tmp
 
@@ -54,7 +57,14 @@ render_index() {
 
 render_htpasswd() {
   rm -f "$HTPASSWD_FILE"
-  htpasswd -c "$HTPASSWD_FILE"
+  htpasswd -cb "$HTPASSWD_FILE" "$USERNAME" "$PASSWORD"
+}
+
+render_htaccess() {
+  AuthType Basic
+  AuthName "$AUTHNAME"
+  AuthUserFile "$HTPASSWD_FILE"
+  Require user $USERNAME
 }
 
 # Compilation directory
