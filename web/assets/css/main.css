@@ -475,12 +475,15 @@ footer {
     display: table-cell;
     width: 35%;
   }
-  #repositories td:first-of-type span,
-  #repositories th:first-of-type span {
+  #repositories .path-component {
     color: white;
     background-color: #4E443C;
     padding: 0.143em;
-    margin-right: 0.382em;
+    margin-right: 0.618em;
+  }
+  #repositories .slash {
+    color: #4E443C;
+    margin-right: 0.618em;
   }
 }
 
