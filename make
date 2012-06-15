@@ -58,16 +58,19 @@ render_index() {
 }
 
 render_htpasswd() {
-  rm -f "$HTPASSWD_FILE"
-  htpasswd -cb "$HTPASSWD_FILE" "$USERNAME" "$PASSWORD"
+  if [ "$USERNAME" != '' && "$PASSWORD" != '' ]
+    then
+    rm -f "$HTPASSWD_FILE"
+    htpasswd -cb "$HTPASSWD_FILE" "$USERNAME" "$PASSWORD"
+  fi
 }
 
 render_htaccess() {
-  echo "AuthType Basic
-AuthName $AUTHNAME
-AuthUserFile $HTPASSWD_FILE
-Require user $USERNAME" >
-  $TMP/public_html/.htaccess
+  if [ "$USERNAME" != '' && "$PASSWORD" != '' ]
+    then
+    echo -e "AuthType Basic\nAuthName $AUTHNAME\nAuthUserFile $HTPASSWD_FILE\nRequire user $USERNAME" >
+      $TMP/public_html/.htaccess
+  fi
 }
 
 # Compilation directory
