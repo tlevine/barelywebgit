@@ -475,8 +475,8 @@ footer {
   #repositories th:first-of-type span {
     color: white;
     background-color: #4E443C;
-    padding: 0.143em
-    margin-right: 0.143em
+    padding: 0.143em;
+    margin-right: 0.143em;
   }
 }
 
