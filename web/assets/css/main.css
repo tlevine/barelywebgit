@@ -129,6 +129,9 @@ th {
 }
 
 tr, th, td {
+	padding-top: 0.618em;
+	padding-bottom: 0.618em;
+	padding-left: 1.625em;
 	padding-right: 1.625em;
 }
 
@@ -369,14 +372,25 @@ sub {
 html, body, #repositories {
   height: 100%;
   width: 100%;
+}
+
+html{
   background: #F0EFE7;
   color: #4E443C;
+}
+
+#repositories {
+  background: white;
 }
 
 header, #main, footer, header img {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+}
+
+footer {
+  text-align: center;
 }
 
 #repositories {
